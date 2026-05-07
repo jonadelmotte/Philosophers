@@ -1,0 +1,6 @@
+# Files .o
+obj/
+*.obj
+
+# executable
+philosophers
