@@ -1,0 +1,50 @@
+
+#include "../include/philosophers.h"
+
+int is_num(char *arg)
+{
+    int i;
+
+    i = 0;
+    while (arg[i])
+    {
+        if (arg[i] < '0' || arg[i] > '9')
+            return (0);
+        i++;
+    }
+    return (1);
+}
+
+int ft_atoi(const char *str)
+{
+    int i;
+    long int retu;
+
+    retu = 0;
+    i = -1;
+    while (str[++i])
+        retu = (retu * 10) + (str[i] - '0');
+    return (retu);
+}
+
+int parser(char **arg, int argc, t_pars *pars)
+{
+    int i;
+
+    i = 0;
+    while (arg[++i])
+    {
+        if (!is_num(arg[i]))
+            return (1);
+    }
+    pars->nb_philo = ft_atoi(arg[1]);
+    pars->nb_fork = ft_atoi(arg[1]);
+    pars->t_die = ft_atoi(arg[2]);
+    pars->t_eat = ft_atoi(arg[3]);
+    pars->t_sleep = ft_atoi(arg[4]);
+    if (argc == 6)
+        pars->num_eat = ft_atoi(arg[5]);
+    else
+        pars->num_eat = -1;
+    return (0);
+}
