@@ -1,4 +1,4 @@
-NAME = philosophers
+NAME = philo
 
 FILES = main parser \
 
