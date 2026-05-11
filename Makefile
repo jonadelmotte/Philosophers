@@ -6,7 +6,7 @@ SRC_DIR = src/
 OBJ_DIR = obj/
 
 CC = cc
-FLAGS = -Wall -Werror -Wextra -pthread -fsanitizer=thread -g
+FLAGS = -Wall -Werror -Wextra -pthread 
 
 INCLUDE = include/philosophers.h
 

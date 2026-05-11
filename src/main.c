@@ -20,5 +20,5 @@ int	main(int argc, char *argv[])
 		return (printf("Not the right amount of args\n"), 1);
 	if (parser(argv, argc, &pars))
 		return (printf("Invalide args\n"), 1);
-	printf("nb_philo = %i, nb_fork = %i, t_die = %i, t_eat = %i, t_sleep = %i, num_eat = %i\n", pars.nb_philo, pars.nb_fork, pars.t_die, pars.t_eat, pars.t_sleep, pars.num_eat);
+	printf("\e[1;34mnb_philo = %i, nb_fork = %i, t_die = %i, t_eat = %i, t_sleep = %i, num_eat = %i\n$", pars.nb_philo, pars.nb_fork, pars.t_die, pars.t_eat, pars.t_sleep, pars.num_eat);
 }
