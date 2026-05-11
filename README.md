@@ -18,3 +18,4 @@
 
 - https://github.com/iciamyplant/Philosophers <-- understand the project <br />
 - https://www.youtube.com/watch?v=o_GbRujGCnM&t=377s <-- understand the project <br />
+- https://www.codequoi.com/en/threads-mutexes-and-concurrent-programming-in-c/ <-- doc on THREADS and MUTEX in c
