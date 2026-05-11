@@ -19,6 +19,10 @@
 # include <sys/time.h>
 # include <unistd.h>
 
+# define RESET	"\e[0m"
+# define RED	"\e[31m"
+# define GREEN	"\e[32m"
+
 typedef struct s_pars
 {
 	int	nb_philo;
