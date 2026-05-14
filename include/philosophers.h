@@ -23,19 +23,21 @@
 # define RED	"\e[31m"
 # define GREEN	"\e[32m"
 
+# define INT_MAX 2147483647
+
 typedef struct s_pars
 {
-	int	nb_philo;
-	int	nb_fork;
-	int	t_die;
-	int	t_eat;
-	int	t_sleep;
-	int	num_eat;
+	long int	nb_philo;
+	long int	nb_fork;
+	long int	t_die;
+	long int	t_eat;
+	long int	t_sleep;
+	long int	num_eat;
 }		t_pars;
 
 /* * * * * * * PARSER * * * * * * * */
 int		is_num(char *arg);
-int		ft_atoi(const char *str);
+long int		ft_atoi(const char *str);
 int		parser(char **arg, int argc, t_pars *pars);
 
 #endif

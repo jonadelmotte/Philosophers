@@ -26,7 +26,7 @@ int	is_num(char *arg)
 	return (1);
 }
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
 	int			i;
 	long int	retu;
@@ -53,8 +53,14 @@ int	parser(char **arg, int argc, t_pars *pars)
 	pars->t_die = ft_atoi(arg[2]);
 	pars->t_eat = ft_atoi(arg[3]);
 	pars->t_sleep = ft_atoi(arg[4]);
+	if (pars->nb_fork < 1 || pars->t_die < 0 || pars->t_eat < 0 || pars->t_sleep < 0 || pars->nb_fork > INT_MAX || pars->t_die > INT_MAX || pars->t_eat > INT_MAX || pars->t_sleep > INT_MAX)
+		return (1);
 	if (argc == 6)
+	{
 		pars->num_eat = ft_atoi(arg[5]);
+		if (pars->num_eat < 0 || pars->num_eat > INT_MAX)
+			return (1);
+	}
 	else
 		pars->num_eat = -1;
 	return (0);
