@@ -19,12 +19,15 @@
 # include <sys/time.h>
 # include <unistd.h>
 # include <time.h>
+# include "philo_library.h"
 
 # define RESET	"\e[0m"
 # define RED	"\e[31m"
 # define GREEN	"\e[32m"
 
 # define INT_MAX 2147483647
+
+typedef pthread_mutex_t	t_mutex;
 
 typedef struct s_pars
 {
@@ -48,7 +51,7 @@ typedef struct s_time
 typedef struct s_philo
 {
 	int		index;
-	// char	*name;
+	char	name[MAX_LEN];
 	t_time time;
 	pthread_t	thread_id;
 	int		eat_objct;
@@ -59,11 +62,21 @@ typedef struct s_philo
 int		is_num(char *arg);
 long int		ft_atoi(const char *str);
 int		parser(char **arg, int argc, t_pars *pars);
+
+/* * * * * PHILO NAME * * * * * * * * */
+char    *find_philo(size_t id);
+const char    *philo_name(size_t id);
+
+/* * * * * * * * INIT * * * * * * * * */
 void    init_philos(t_pars pars, t_philo *philo);
+void    init_forks(t_pars pars, t_mutex **forks);
+void    print_philos(t_philo *philo, int num);
 
 /* * * * * * * * UTILS * * * * * * * */
 size_t ft_strlen(char *str);
 void    error(char *str, int out);
 size_t	get_time();
+void    free_fork(char *str, int out, t_mutex **fork, int num);
+size_t	ft_strcpy(char *dest, const char *src);
 
 #endif

@@ -10,6 +10,20 @@ size_t ft_strlen(char *str)
     return (i);
 }
 
+size_t	ft_strcpy(char *dest, const char *src)
+{
+	size_t	i;
+
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (0);
+}
+
 void    error(char *str, int out)
 {
     if (str)
@@ -24,4 +38,29 @@ size_t  get_time()
     if (gettimeofday(&time, NULL) == -1)
         error(RED"gettimeofday: error\n"RESET, 1);
     return (time.tv_sec * 1000 + time.tv_usec / 1000);
+}
+
+void    free_fork(char *str, int out, t_mutex **fork, int num)
+{
+    int     i;
+
+    i = num;
+    while (i >= 0)
+    {
+        pthread_mutex_destroy(fork[i]);
+        i--;
+    }
+    error(str, out);
+}
+
+void    print_philos(t_philo *philo, int num)
+{
+    int i;
+
+    i = 0;
+    while (i < num)
+    {
+        printf("%sNAME = %s%s\n%sNUM = %s%i\n%sBIRTH_TIME = %s%zu\n\n%s", RED, GREEN, philo[i].name, RED, GREEN, i + 1, RED, GREEN, philo[i].time.birth_time, RESET);
+        i++;
+    }
 }

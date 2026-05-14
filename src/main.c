@@ -16,15 +16,19 @@ int	main(int argc, char *argv[])
 {
 	t_pars	pars;
 	t_philo *philo;
+	// t_mutex	*forks;
 
 	if (argc > 6 || argc < 5)
 		error(RED"Not the right amount of args\n"RESET, 1);
 	if (parser(argv, argc, &pars))
 		error(RED"invalid args\n"RESET, 1);
-	printf("%snb_philo = %li, nb_fork = %li, t_die = %li, t_eat = %li, t_sleep = %li, num_eat = %li\n%s", GREEN, pars.nb_philo, pars.nb_fork, pars.t_die, pars.t_eat, pars.t_sleep, pars.num_eat, RESET);
-	philo = malloc(sizeof(t_philo) * pars.nb_philo);
+	philo = malloc(sizeof(t_philo) * (pars.nb_philo + 1));
 	if (!philo)
 		error(RED"malloc: error\n"RESET, 1);
+	// forks = malloc(sizeof(t_philo) * (pars.nb_fork + 1));
+	// if (!forks)
+	// 	error(RED"malloc: error\n"RESET, 1);// GERE LES MALLOC JONA
 	init_philos(pars, philo);
-	printf("%sbirth_time = %zu\n%s", RED, philo[0].time.birth_time, RESET);
+	// init_forks(pars, &forks);
+	// print_philos(philo, pars.nb_philo);
 }
