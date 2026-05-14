@@ -15,10 +15,16 @@
 int	main(int argc, char *argv[])
 {
 	t_pars	pars;
+	t_philo *philo;
 
 	if (argc > 6 || argc < 5)
-		return (printf("%sNot the right amount of args\n%s", RED, RESET), 1);
+		error(RED"Not the right amount of args\n"RESET, 1);
 	if (parser(argv, argc, &pars))
-		return (printf("%sInvalide args\n%s", RED, RESET), 1);
+		error(RED"invalid args\n"RESET, 1);
 	printf("%snb_philo = %li, nb_fork = %li, t_die = %li, t_eat = %li, t_sleep = %li, num_eat = %li\n%s", GREEN, pars.nb_philo, pars.nb_fork, pars.t_die, pars.t_eat, pars.t_sleep, pars.num_eat, RESET);
+	philo = malloc(sizeof(t_philo) * pars.nb_philo);
+	if (!philo)
+		error(RED"malloc: error\n"RESET, 1);
+	init_philos(pars, philo);
+	printf("%sbirth_time = %zu\n%s", RED, philo[0].time.birth_time, RESET);
 }
