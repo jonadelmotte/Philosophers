@@ -6,7 +6,7 @@
 /*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 17:10:17 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/05/11 17:43:48 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:12:49 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ int	main(int argc, char *argv[])
 	// 	error(RED"malloc: error\n"RESET, 1);// GERE LES MALLOC JONA
 	init_philos(pars, philo);
 	// init_forks(pars, &forks);
-	// print_philos(philo, pars.nb_philo);
+	print_philos(philo, pars.nb_philo);
 }

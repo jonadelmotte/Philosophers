@@ -16,7 +16,7 @@ void    init_philos(t_pars pars, t_philo *philo)
         philo[i].eat_objct = (int)pars.num_eat;
         philo[i].eat_count = 0;
         ft_strcpy(philo[i].name, find_philo(philo[i].time.birth_time));
-        usleep(800);
+        usleep(900);
         i++;
     }
 }

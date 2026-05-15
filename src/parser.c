@@ -6,7 +6,7 @@
 /*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 17:10:41 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/05/07 17:10:51 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:11:23 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ int	parser(char **arg, int argc, t_pars *pars)
 	pars->t_die = ft_atoi(arg[2]);
 	pars->t_eat = ft_atoi(arg[3]);
 	pars->t_sleep = ft_atoi(arg[4]);
-	if (pars->nb_fork < 1 || pars->t_die < 0 || pars->t_eat < 0 || pars->t_sleep < 0 || pars->nb_fork > INT_MAX || pars->t_die > INT_MAX || pars->t_eat > INT_MAX || pars->t_sleep > INT_MAX)
+	if (pars->nb_fork < 1 || pars->t_die < 0 || pars->t_eat < 0
+		|| pars->t_sleep < 0 || pars->nb_fork > INT_MAX || pars->t_die > INT_MAX
+		|| pars->t_eat > INT_MAX || pars->t_sleep > INT_MAX)
 		return (1);
 	if (argc == 6)
 	{

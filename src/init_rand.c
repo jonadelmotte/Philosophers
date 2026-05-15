@@ -14,7 +14,7 @@ const char    *philo_name(size_t id)
     PH_80, PH_81, PH_82, PH_83, PH_84, PH_85, PH_86, PH_87, PH_88, PH_89,
     PH_90, PH_91, PH_92, PH_93, PH_94, PH_95, PH_96, PH_97, PH_98, PH_99
 };
-    if (id >= 0 && id < 100)
+    if (id < 100)
         return (philo_library[id]);
     return (NULL);
 }
@@ -22,10 +22,7 @@ const char    *philo_name(size_t id)
 char    *find_philo(size_t id)
 {
     int i;
-    int r;
 
     i = id % 100;
-    r = 
-    printf("%i\n%i\n\n\n", i, r);
-    return ((char *)philo_name(id));
+    return ((char *)philo_name(i));
 }
