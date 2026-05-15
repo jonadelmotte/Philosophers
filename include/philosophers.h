@@ -6,7 +6,7 @@
 /*   By: jdelmott <jdelmott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 17:11:17 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/05/07 17:11:18 by jdelmott         ###   ########.fr       */
+/*   Updated: 2026/05/15 15:45:42 by jdelmott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHILOSOPHERS_H
 
 # include <pthread.h>
+# include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/time.h>
@@ -25,7 +26,7 @@
 # define RED	"\e[31m"
 # define GREEN	"\e[32m"
 
-# define INT_MAX 2147483647
+// # define INT_MAX 2147483647
 
 typedef pthread_mutex_t	t_mutex;
 
