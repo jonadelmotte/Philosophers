@@ -3,18 +3,18 @@
 static void    philo_turn_next(t_philo *philo)
 {
     pthread_mutex_lock(philo->left_fork);
-    printf(RED"philo %i: %s: "GREEN"has taken a fork\n"RESET, philo->index, philo->name);
+    printf(RED"philo %i: "BLUE"%s: "GREEN"has taken a fork\n"RESET, philo->index, philo->name);
     pthread_mutex_lock(philo->right_fork);
-    printf(RED"philo %i: %s: "GREEN"has taken a fork\n"RESET, philo->index, philo->name);
-    printf(RED"philo %i: %s: "GREEN"is eating\n"RESET, philo->index, philo->name);
+    printf(RED"philo %i: "BLUE"%s: "GREEN"has taken a fork\n"RESET, philo->index, philo->name);
+    printf(RED"philo %i: "BLUE"%s: "GREEN"is eating\n"RESET, philo->index, philo->name);
     philo->time.prev_eat = get_time();
     philo->eat_count += 1;
     ft_usleep(philo->time.eat);
     pthread_mutex_unlock(philo->left_fork);
     pthread_mutex_unlock(philo->right_fork);
-    printf(RED"philo %i: %s: "GREEN"is sleeping\n"RESET, philo->index, philo->name);  
+    printf(RED"philo %i: "BLUE"%s: "GREEN"is sleeping\n"RESET, philo->index, philo->name);  
     ft_usleep(philo->time.sleep);
-    printf(RED"philo %i: %s: "GREEN"is thinking\n"RESET, philo->index, philo->name);
+    printf(RED"philo %i: "BLUE"%s: "GREEN"is thinking\n"RESET, philo->index, philo->name);
 }
 
 static void    *philo_turn(void *ptr)

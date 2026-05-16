@@ -25,6 +25,7 @@
 # define RESET	"\e[0m"
 # define RED	"\e[31m"
 # define GREEN	"\e[32m"
+# define BLUE	"\e[1;36m"
 
 // # define INT_MAX 2147483647
 
