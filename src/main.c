@@ -26,6 +26,7 @@ int	main(int argc, char *argv[])
 	init_gc(&gc, forks, philo, pars);
 	init_philos(pars, philo, forks);
 	init_forks(gc, pars, forks);
-	print_philos(philo, pars.nb_philo);
+	// print_philos(philo, pars.nb_philo);
+	init_table(&gc);
 	free_all(&gc, GREEN"everything is good and well\n"RESET, 0);
 }

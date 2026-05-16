@@ -1,6 +1,6 @@
 NAME = philo
 
-FILES = main parser init utils init_rand \
+FILES = main parser init utils init_rand table \
 
 SRC_DIR = src/
 OBJ_DIR = obj/

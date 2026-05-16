@@ -83,6 +83,9 @@ void    init_forks(t_free_all gc, t_pars pars, t_mutex *forks);
 void    print_philos(t_philo *philo, int num);
 void    init_gc(t_free_all *gc, t_mutex *fork, t_philo *philos, t_pars parser);
 
+/* * * * * * * * ALGO * * * * * * * * * */
+void    init_table(t_free_all *gc);
+
 /* * * * * * * * UTILS * * * * * * * */
 size_t ft_strlen(char *str);
 void    error(char *str, int out);
@@ -90,5 +93,6 @@ void    free_all(t_free_all *gc, char *str, int out);
 size_t	get_time();
 void    free_fork(char *str, int out, t_mutex **fork, int num);
 size_t	ft_strcpy(char *dest, const char *src);
+void    ft_usleep(size_t mls);
 
 #endif

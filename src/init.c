@@ -41,7 +41,7 @@ void    init_forks(t_free_all gc, t_pars pars, t_mutex *forks)
     while (i < pars.nb_fork)
     {
         if (pthread_mutex_init(&forks[i], NULL) != 0)
-            free_all(&gc, RED"Pthread_mutex_init: error"RESET, 1);//LIBER TOUT JONA STPPP
+            free_all(&gc, RED"Pthread_mutex_init: error"RESET, 1);
         i++;
     }
 }

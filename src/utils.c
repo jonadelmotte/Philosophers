@@ -64,3 +64,12 @@ void    print_philos(t_philo *philo, int num)
         i++;
     }
 }
+
+void    ft_usleep(size_t mls)
+{
+    size_t start;
+
+    start = get_time();
+    while (get_time() - start < mls)
+        usleep(500);
+}
