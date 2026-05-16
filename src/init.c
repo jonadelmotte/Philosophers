@@ -1,6 +1,6 @@
 #include "../include/philosophers.h"
 
-void    init_philos(t_pars pars, t_philo *philo)
+void    init_philos(t_pars pars, t_philo *philo, t_mutex *fork)
 {
     int     i;
 
@@ -17,19 +17,31 @@ void    init_philos(t_pars pars, t_philo *philo)
         philo[i].eat_count = 0;
         ft_strcpy(philo[i].name, find_philo(philo[i].time.birth_time));
         usleep(900);
+        philo[i].left_fork = &fork[i];
+        if (i == 0)
+            philo[i].right_fork = &fork[pars.nb_fork - 1];
+        else
+            philo[i].right_fork = &fork[i - 1];
         i++;
     }
 }
 
-void    init_forks(t_pars pars, t_mutex **forks)
+void    init_gc(t_free_all *gc, t_mutex *fork, t_philo *philos, t_pars parser)
+{
+    gc->forks = fork;
+    gc->philos = philos;
+    gc->nb = parser.nb_philo;
+}
+
+void    init_forks(t_free_all gc, t_pars pars, t_mutex *forks)
 {
     int     i;
 
     i = 0;
     while (i < pars.nb_fork)
     {
-        if (pthread_mutex_init(forks[i], NULL) != 0)
-            error(RED"Pthread_mutex_init: error"RESET, 1);//LIBER TOUT JONA STPPP
+        if (pthread_mutex_init(&forks[i], NULL) != 0)
+            free_all(&gc, RED"Pthread_mutex_init: error"RESET, 1);//LIBER TOUT JONA STPPP
         i++;
     }
 }

@@ -40,15 +40,15 @@ size_t  get_time()
     return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-void    free_fork(char *str, int out, t_mutex **fork, int num)
+void    free_all(t_free_all *gc, char *str, int out)
 {
-    int     i;
+    int i;
 
-    i = num;
-    while (i >= 0)
+    i = 0;
+    while (i < gc->nb)
     {
-        pthread_mutex_destroy(fork[i]);
-        i--;
+        pthread_mutex_destroy(&gc->forks[i]);
+        i++;
     }
     error(str, out);
 }

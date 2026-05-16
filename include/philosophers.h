@@ -57,7 +57,16 @@ typedef struct s_philo
 	pthread_t	thread_id;
 	int		eat_objct;
 	int		eat_count;
+	t_mutex *left_fork;
+	t_mutex *right_fork;
 }		t_philo;
+
+typedef struct s_free_all
+{
+	int		nb;
+	t_mutex *forks;
+	t_philo *philos;
+}		t_free_all;
 
 /* * * * * * * PARSER * * * * * * * */
 int		is_num(char *arg);
@@ -69,13 +78,15 @@ char    *find_philo(size_t id);
 const char    *philo_name(size_t id);
 
 /* * * * * * * * INIT * * * * * * * * */
-void    init_philos(t_pars pars, t_philo *philo);
-void    init_forks(t_pars pars, t_mutex **forks);
+void    init_philos(t_pars pars, t_philo *philo, t_mutex *forks);
+void    init_forks(t_free_all gc, t_pars pars, t_mutex *forks);
 void    print_philos(t_philo *philo, int num);
+void    init_gc(t_free_all *gc, t_mutex *fork, t_philo *philos, t_pars parser);
 
 /* * * * * * * * UTILS * * * * * * * */
 size_t ft_strlen(char *str);
 void    error(char *str, int out);
+void    free_all(t_free_all *gc, char *str, int out);
 size_t	get_time();
 void    free_fork(char *str, int out, t_mutex **fork, int num);
 size_t	ft_strcpy(char *dest, const char *src);

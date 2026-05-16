@@ -15,20 +15,17 @@
 int	main(int argc, char *argv[])
 {
 	t_pars	pars;
-	t_philo *philo;
-	// t_mutex	*forks;
+	t_philo philo[200];
+	t_mutex	forks[200];
+	t_free_all gc;
 
 	if (argc > 6 || argc < 5)
 		error(RED"Not the right amount of args\n"RESET, 1);
 	if (parser(argv, argc, &pars))
 		error(RED"invalid args\n"RESET, 1);
-	philo = malloc(sizeof(t_philo) * (pars.nb_philo + 1));
-	if (!philo)
-		error(RED"malloc: error\n"RESET, 1);
-	// forks = malloc(sizeof(t_philo) * (pars.nb_fork + 1));
-	// if (!forks)
-	// 	error(RED"malloc: error\n"RESET, 1);// GERE LES MALLOC JONA
-	init_philos(pars, philo);
-	// init_forks(pars, &forks);
+	init_gc(&gc, forks, philo, pars);
+	init_philos(pars, philo, forks);
+	init_forks(gc, pars, forks);
 	print_philos(philo, pars.nb_philo);
+	free_all(&gc, GREEN"everything is good and well\n"RESET, 0);
 }
